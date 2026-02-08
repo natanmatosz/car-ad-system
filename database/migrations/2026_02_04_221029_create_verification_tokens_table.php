@@ -29,7 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        \Nette\Utils\Random::generate(self::TOKEN_LENGTH);
         Schema::dropIfExists('verification_tokens');
     }
 };

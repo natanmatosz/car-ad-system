@@ -2,7 +2,7 @@
 
 namespace App\Dto\User;
 
-readonly class UserDto
+final readonly class UserDto
 {
     public function __construct(
         public string $firstName,

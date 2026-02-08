@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Twilio\Rest\Client;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -11,7 +12,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->instance(Client::class, new Client(env('TWILIO_ACCOUNT_SID'), env('TWILIO_API_KEY')));
     }
 
     /**

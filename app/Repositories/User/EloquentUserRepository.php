@@ -42,6 +42,15 @@ class EloquentUserRepository implements UserRepository
         return $this->model->newQuery()->where('phone_number', $phoneNumber)->exists();
     }
 
+    public function getEmailVerificationCode(string $uuid): string
+    {
+    }
+
+    public function getPhoneNumberVerificationCode(string $uuid): string
+    {
+
+    }
+
     public function validateEmail(string $uuid): void
     {
         $this->validateEmailOrPhoneNumber($uuid, true);
@@ -54,7 +63,7 @@ class EloquentUserRepository implements UserRepository
 
     private function validateEmailOrPhoneNumber(string $uuid, bool $isEmail): void
     {
-        $toUpdate = $isEmail ? ['email_verified_at' => now()]: ['phone_number_verified_at' => now()];
+        $toUpdate = $isEmail ? ['email_verified_at' => now()]: ['phone_verified_at' => now()];
         $this->model->newQuery()->where('uuid', $uuid)->update($toUpdate);
     }
 }

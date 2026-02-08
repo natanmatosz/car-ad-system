@@ -17,7 +17,11 @@ interface UserRepository
 
     public function isPhoneNumberRegistered(string $phoneNumber): bool;
 
-    public function validateEmail(string $uuid);
+    public function validateEmail(string $uuid): void;
 
-    public function validatePhoneNumber(string $uuid);
+    public function validatePhoneNumber(string $uuid): void;
+
+    public function getEmailVerificationCode(string $uuid): string;
+
+    public function getPhoneNumberVerificationCode(string $uuid): string;
 }

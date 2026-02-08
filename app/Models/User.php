@@ -12,6 +12,7 @@ class User extends Authenticatable
     use HasApiTokens, HasUuids;
 
     public const int MINIMUM_AGE = 18;
+
     public $primaryKey = 'uuid';
 
     protected $fillable = [
